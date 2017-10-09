@@ -1,0 +1,190 @@
+html * {
+  margin: 0;
+}
+
+body {
+  position: relative;
+  z-index: -2;
+}
+
+.App {
+  display: none;
+}
+
+@font-face {
+  font-family: Ailerons;
+  src: url(ailerons.otf)
+}
+
+@font-face {
+  font-family: Chase;
+  src: url(Chase.ttf)
+}
+
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+.home-container, .app-container {
+  background-color: #FF2760;
+}
+
+.big-logo {
+  width: 600px;
+  margin-top: 150px;
+  padding-left: 190px;
+  display: inline-block;
+}
+
+.search {
+  padding-top: 50px;
+  position: relative;
+  z-index: 10;
+}
+
+.searchInput {
+  position: fixed;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  border: 3px solid white;
+  background-color: transparent;
+  color: #FFF;
+  text-align: center;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Ailerons;
+  font-size: 22px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* PLACEHOLDER STYLING */
+::-webkit-input-placeholder { /* Chrome */
+  color: #FFF;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #FFF;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #FFF;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #FFF;
+  opacity: 1;
+}
+
+.look-good {
+  color: white;
+  position: absolute;
+  left: 48%;
+  top: 450px;
+  font-size: 28px;
+  font-family: Chase;
+}
+
+.backdrop img {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.sky-is-easy, .app-header {
+  font-family: Ailerons;
+  font-size: 80px;
+  color: #F8D3E7;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.how-block-container {
+  transition: 1s ease-in-out;
+  padding-top: 100px;
+  padding-bottom: 120px;
+  display: inline-block;
+  width: 33.33%;
+  height: 60px;
+  background-color: #CADEFF;
+  position: relative;
+}
+
+.how-block-container:hover {
+  transition: 2s ease-in-out;
+  background-color: #191919;
+}
+
+#left-how-container {
+  float: left;
+}
+
+#mid-how-container {
+  margin: auto;
+}
+
+#right-how-container {
+  float: right;
+}
+
+.how {
+  font-family: Chase;
+  font-size: 30px;
+  color: #191919;
+}
+
+.weather-container {
+  margin-top: 180px;
+  width: 100%;
+  height: 100%;
+}
+
+.test {
+  color: white;
+}
+
+.magCircle {
+  width: 100%;
+  height: 100%;
+  position: absolute !important;
+  left: 50%;
+  top: 40px;
+}
+
+.app-header {
+  padding-top: 80px;
+}
+
+.location-search {
+  background-color: transparent;
+  border: none;
+  font-family: Ailerons;
+  font-size: 80px;
+  color: #FFF;
+  text-align: center;
+  cursor: default;
+}
+
+input:focus {
+  outline: none;
+}
+
+#display {
+  font-family: Chase;
+  font-size: 20px;
+}
+
+.weather-img {
+  height: 300px;
+  padding-bottom: 50px;
+}
+
+.weather-description {
+  font-size: 20px;
+  font-family: Chase;
+  color: #FFF;
+  text-align: center;
+  padding-bottom: 80px;
+}
