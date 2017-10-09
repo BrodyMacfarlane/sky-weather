@@ -93,6 +93,15 @@ body {
   z-index: -1;
 }
 
+#sky-is-easy-border {
+  border-bottom: 2px solid #FFF;
+  opacity: 0.5;
+  width: 300px;
+  margin: auto;
+  position: relative;
+  bottom: 90px;
+}
+
 .sky-is-easy, .app-header {
   font-family: Ailerons;
   font-size: 80px;
@@ -173,7 +182,7 @@ input:focus {
 
 #display {
   font-family: Chase;
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .weather-img {
@@ -182,9 +191,50 @@ input:focus {
 }
 
 .weather-description {
-  font-size: 20px;
+  font-size: 24px;
   font-family: Chase;
   color: #FFF;
   text-align: center;
   padding-bottom: 80px;
+}
+
+#footer-container {
+  background-color: #1B1B1B;
+}
+
+.footer-guy {
+  display: inline-block;
+  width: 30%;
+  vertical-align: text-top;
+}
+
+.footer-guy-text {
+  margin-bottom: 30px;
+  padding: 50px;
+  color: #FFF;
+  font-family: Chase;
+  border-bottom: 1px solid #F8D3E7;
+  font-size: 18px;
+}
+
+#mid-foot-text {
+  border-left: 1px solid #F8D3E7;
+  border-right: 1px solid #F8D3E7;
+}
+
+.foot-header {
+  font-family: Ailerons;
+  font-size: 40px;
+  color: #F8D3E7;
+  position: relative;
+  top: 20px;
+}
+
+.foot-header-line {
+  width: 150px;
+  border-bottom: 1px solid #fff;
+  opacity: 0.5;
+  position: relative;
+  top: 5px;
+  margin: auto;
 }

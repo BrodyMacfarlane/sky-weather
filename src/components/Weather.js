@@ -19,7 +19,8 @@ export default class Weather extends Component {
             returnedLocation: '',
             currentWeather: '',
             currentWeatherPic: clear,
-            text: 'Please type in a city name above to receive details from that area.',
+            temperature: [0,0,0], //[current, high, low]
+            text: 'Details will appear after you type a City name and press "enter".',
             baseURL: "http://api.openweathermap.org/data/2.5/forecast?q=",
             endURL: "&mode=json&APPID=4d928f7a0eb70754b2bbd3711db8b253",
         }
@@ -46,49 +47,49 @@ export default class Weather extends Component {
             console.log("this shit is clear")
             this.setState({
                 currentWeatherPic: clear,
-                text: 'The weather is clear with a max temp of F and a low of F.'
+                text: `The weather is currently clear and ${Math.floor((this.state.temperature[0] - 273.15) * 9/5) + 32}F with a high temp of ${Math.floor((this.state.temperature[1] - 273.15) * 9/5) + 32}F and a low of ${Math.floor((this.state.temperature[2] - 273.15) * 9/5) + 32}F.`
             })
         }
         else if (this.state.currentWeather === "Clouds") {
             console.log("this shit is cloudy *puffs vape*")
             this.setState({
                 currentWeatherPic: cloudy,
-                text: 'The weather is cloudy with a max temp of F and a low of F.'
+                text: `The weather is currently cloudy and ${Math.floor((this.state.temperature[0] - 273.15) * 9/5) + 32}F with a high temp of ${Math.floor((this.state.temperature[1] - 273.15) * 9/5) + 32}F and a low of ${Math.floor((this.state.temperature[2] - 273.15) * 9/5) + 32}F.`
             })
         }
         else if (this.state.currentWeather === "Drizzle") {
             console.log("this shit is drizzly *lets out satisfied sigh*")
             this.setState({
                 currentWeatherPic: drizzle,
-                text: 'The weather is a light rain with a max temp of F and a low of F.'
+                text: `The weather is currently a light rain and ${Math.floor((this.state.temperature[0] - 273.15) * 9/5) + 32}F with a high temp of ${Math.floor((this.state.temperature[1] - 273.15) * 9/5) + 32}F and a low of ${Math.floor((this.state.temperature[2] - 273.15) * 9/5) + 32}F.`
             })
         }
         else if (this.state.currentWeather === "Rain") {
             console.log("this shit is rainy *cries cause happy*")
             this.setState({
                 currentWeatherPic: rain,
-                text: 'The weather is rainy with a max temp of F and a low of F.'
+                text: `The weather is currently rainy and ${Math.floor((this.state.temperature[0] - 273.15) * 9/5) + 32}F with a high temp of ${Math.floor((this.state.temperature[1] - 273.15) * 9/5) + 32}F and a low of ${Math.floor((this.state.temperature[2] - 273.15) * 9/5) + 32}F.`
             })
         }
         else if (this.state.currentWeather === "Snow") {
             console.log("this shit is snowy *hits kicker*")
             this.setState({
                 currentWeatherPic: snow,
-                text: 'The weather is snowy with a max temp of F and a low of F.'
+                text: `The weather is currently snowy and ${Math.floor((this.state.temperature[0] - 273.15) * 9/5) + 32}F with a high temp of ${Math.floor((this.state.temperature[1] - 273.15) * 9/5) + 32}F and a low of ${Math.floor((this.state.temperature[2] - 273.15) * 9/5) + 32}F.`
             })
         }
         else if (this.state.currentWeather === "Atmosphere") {
             console.log("this shit is foggy n shit *puffs vape*")
             this.setState({
                 currentWeatherPic: visibility,
-                text: 'The weather is poor for visibility with a max temp of F and a low of F.'
+                text: `The weather is poor for visibility and ${Math.floor((this.state.temperature[0] - 273.15) * 9/5) + 32}F with a high temp of ${Math.floor((this.state.temperature[1] - 273.15) * 9/5) + 32}F and a low of ${Math.floor((this.state.temperature[2] - 273.15) * 9/5) + 32}F.`
             })
         }
         else if (this.state.currentWeather === "Thunderstorm") {
             console.log("this shit is a gnarly thunderstorm")
             this.setState({
                 currentWeatherPic: thunderstorm,
-                text: 'The weather is an intense thunderstorm with a max temp of F and a low of F.'
+                text: `The weather is currently an intense thunderstorm and ${Math.floor((this.state.temperature[0] - 273.15) * 9/5) + 32}F with a high temp of ${Math.floor((this.state.temperature[1] - 273.15) * 9/5) + 32}F and a low of ${Math.floor((this.state.temperature[2] - 273.15) * 9/5) + 32}F.`
             })
         }
     }
@@ -100,7 +101,8 @@ export default class Weather extends Component {
                     weather: response.data,
                     prefix: "Displaying weather for ",
                     returnedLocation: response.data.city.name + ", " + response.data.city.country,
-                    currentWeather: response.data.list[20].weather[0].main
+                    currentWeather: response.data.list[0].weather[0].main,
+                    temperature: [response.data.list[0].main.temp, response.data.list[0].main.temp_max, response.data.list[0].main.temp_min]
                 })
                 console.log(this.currentWeather)
                 this.weatherPicHandler()
